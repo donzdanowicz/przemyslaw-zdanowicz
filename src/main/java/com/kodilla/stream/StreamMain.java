@@ -10,10 +10,12 @@ import com.kodilla.stream.lambda.*;
 import com.kodilla.stream.person.People;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.time.Period;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -21,9 +23,10 @@ public class StreamMain {
 
         Map<Integer, ForumUser> result = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getSex() == ('M'))
-                .filter(forumUser -> forumUser.getBirthDate().getYear() <= 1991)
+                .filter(forumUser -> forumUser.calculatePeriod() > 20)
                 .filter(forumUser -> forumUser.getPostsCount() >= 1)
                 .collect(Collectors.toMap(ForumUser::getUserId, forumUser -> forumUser));
+
 
         System.out.println(result);
 
