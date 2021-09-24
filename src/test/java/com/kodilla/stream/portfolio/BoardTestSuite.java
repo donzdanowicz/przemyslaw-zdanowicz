@@ -6,9 +6,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -105,9 +102,10 @@ public class BoardTestSuite {
                 .map(d -> Period.between(d, LocalDate.now()).getDays())
                 .count();
 
+        double average = sum/count;
 
         //Then
-        assertEquals(10, sum/count);
+        assertEquals(10.0, average);
 
     }
 
