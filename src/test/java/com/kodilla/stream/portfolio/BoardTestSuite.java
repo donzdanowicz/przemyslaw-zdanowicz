@@ -104,6 +104,7 @@ public class BoardTestSuite {
 
         double average = sum/count;
 
+
         //Then
         assertEquals(10.0, average);
 
