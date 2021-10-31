@@ -15,6 +15,10 @@ public final class SimpleInvoice {
         return items.remove(item);
     }
 
+    public List<SimpleItem> getItems() {
+        return items;
+    }
+
     public double getValueToPay() {
         return items.stream()
                 .collect(Collectors.summingDouble(SimpleItem::getValue));
